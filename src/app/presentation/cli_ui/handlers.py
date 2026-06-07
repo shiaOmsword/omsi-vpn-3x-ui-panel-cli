@@ -27,6 +27,7 @@ def create_user_prompt()->dict:
     data:dict[str, Any] = {
         "client": {
             "email":email,
+            "group":"work_1",
             "enable": True,
             "flow":"xtls-rprx-vision",
             "expiryTime": 0,
@@ -59,7 +60,7 @@ async def create_user(params: dict[str, Any]) -> bool:
         app = container.app()
         user = await app.panel.create_user(payload=data)
         user = await app.panel.get_user(email=email)
-    
+    #print(user)
     console.print(f"[green]Пользователь создан[/green]:\n Ссылка на подписку:{settings.base_url_sub}{user.sub_id}")
     return True
 
