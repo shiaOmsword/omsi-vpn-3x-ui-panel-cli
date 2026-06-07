@@ -40,12 +40,13 @@ def create_user_prompt()->dict:
 HEADERS_ROW = [
     "id",
     "email",
-    "sub_id",
+    # "sub_id",
     "enable",
     "flow",
     "created_at",
     "updated_at",
     "inbound_ids",
+    "sub_url",
 ]
 
 async def status_handler(params: dict[str, Any]) -> bool:
@@ -80,12 +81,13 @@ async def get_users_handler(params: dict[str, Any]) -> bool:
         table.add_row(
             str(user.id),
             user.email,
-            user.sub_id,
+            # user.sub_id,
             str(user.enable),
             user.flow,
             user.created_at,
             user.updated_at,
             format_inbound_ids(user.inboundIds),
+            f"{settings.base_url_sub}{user.sub_id}",
         )
         
     console.print(table)
