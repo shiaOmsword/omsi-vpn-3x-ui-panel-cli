@@ -1,0 +1,24 @@
+app:
+  title: "Control Panel Interface"
+  subtitle: "Панель управления 3x-ui"
+
+screens:
+  main_menu:
+    title: "Главное меню"
+    description: "Выбери действие, которое хочешь выполнить."
+
+commands:
+  - key: "1"
+    title: "Загрузить список пользователей"
+    description: "Показть список весь пользователей системы"
+    action: "get_users"
+  
+  - key: "2"
+    title: "Создать ключ пользователя"
+    description: "Создать ключ пользователя и получить ссылку на подписку"
+    action: "create_user"
+    
+  - key: "3"
+    title: "Выход"
+    description: "Завершить программу"
+    action: "quit"

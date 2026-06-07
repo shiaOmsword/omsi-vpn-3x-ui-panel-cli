@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "httpx_client_panel"
+version = "0.1.0"
+description = "connect to vpn console"
+authors = ["Alexander"]
+packages = [{ include = "app", from = "src" }]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+httpx = "^0.28.1"
+pydantic = "^2.13.4"
+pydantic-settings = "^2.14.1"
+python-dotenv = "^1.2.2"
+typer = "^0.26.7"
+rich = "^15.0.0"
+pyyaml = "^6.0.3"
+pyyml = "^0.0.2"
+tzdata = "^2026.2"
+
+[tool.poetry.scripts]
+launch = "app.bootstrap.cli:main"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
