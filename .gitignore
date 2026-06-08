@@ -68,3 +68,6 @@ settings.local.py
 
 # Windows shortcuts / local launch files
 *.lnk
+
+*.zip
+*.rar

@@ -10,19 +10,19 @@ from rich.prompt import Prompt
 from app.bootstrap.cli_actions.app import app
 import asyncio
 
-@app.command()
-def get_users(
-    config_path: Path = typer.Option(
-        Path("config/local.yml"),
-        "--config",
-        "-c",
-        help="Путь к YAML-конфигу",
-    )
-) -> None:
-    asyncio.run(get_users_async(config_path))
+# @app.command()
+# def get_users(
+#     config_path: Path = typer.Option(
+#         Path("config/local.yml"),
+#         "--config",
+#         "-c",
+#         help="Путь к YAML-конфигу",
+#     )
+# ) -> None:
+#     asyncio.run(get_users_async(config_path))
 
 
-async def get_users_async(config_path: Path) -> None:
-    config = load_config(config_path)
-    render_header(config)
-    await handle_command("get_users")
+# async def get_users_async(config_path: Path) -> None:
+#     config = load_config(config_path)
+#     render_header(config)
+#     await handle_command("get_users")
