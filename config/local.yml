@@ -17,8 +17,13 @@ commands:
     title: "Создать ключ пользователя"
     description: "Создать ключ пользователя и получить ссылку на подписку"
     action: "create_user"
-    
+
   - key: "3"
+    title: "Удалить ключ пользователя"
+    description: "Удалить ключ пользователя"
+    action: "delete_user"    
+    
+  - key: "4"
     title: "Выход"
     description: "Завершить программу"
     action: "quit"

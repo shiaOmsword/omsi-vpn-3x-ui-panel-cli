@@ -1,5 +1,5 @@
 from typing import Any, Awaitable, Callable
-from .handlers import status_handler, get_users_handler, quit_handler, create_user
+from .handlers import status_handler, get_users_handler, quit_handler, create_user, delete_user_handler
 from app.common.console.console import console
 
 Handler = Callable[[dict[str, Any]], Awaitable[bool]]
@@ -8,6 +8,7 @@ ACTION_REGISTRY: dict[str, Handler] = {
     "status": status_handler,
     "get_users": get_users_handler,
     "create_user": create_user,
+    "delete_user": delete_user_handler,
     "quit": quit_handler,
 }
 

@@ -5,6 +5,7 @@ from typing import Any
 from app.application.use_cases.get_users_list import GetUsersListUseCase
 from app.application.use_cases.create_client import CreateUserUseCase
 from app.application.use_cases.get_user import GetUserUseCase
+from app.application.use_cases.delete_user import DeleteUserUseCase
 
 from app.application.facades.panel_facade import PanelFacade
 from app.application.facades.app_facade import AppFacade
@@ -47,11 +48,16 @@ class AppContainer:
         panel = self.get_control_panel_gateway()
         return GetUserUseCase(panel=panel)
     
+    def get_delete_user_use_case(self) -> DeleteUserUseCase:
+        panel = self.get_control_panel_gateway()  
+        return DeleteUserUseCase(panel=panel)
+    
     def get_panel_facade(self) -> PanelFacade:
         return PanelFacade(
             get_users_list_use_case=self.get_users_list_use_case(),
             get_create_user_use_case=self.get_create_user_use_case(),
             get_get_user_use_case=self.get_get_user_use_case(),
+            get_delete_user_use_case=self.get_delete_user_use_case(),
         )
         
 

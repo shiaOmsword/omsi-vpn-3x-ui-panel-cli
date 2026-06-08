@@ -13,6 +13,7 @@ import uuid
 from rich.prompt import Prompt, IntPrompt, Confirm
 from app.config.settings import get_settings
 settings = get_settings()
+
 def create_user_prompt()->dict:
     email = Prompt.ask("[yellow]Введите название ключа или оно будет сгенерировано автоматически[/yellow]")
     inbound_id = IntPrompt.ask("[yellow]Введите номер инбаунда[/yellow]", choices=["1","2"],  default=1)
@@ -93,7 +94,22 @@ async def get_users_handler(params: dict[str, Any]) -> bool:
     console.print(table)
     return True
 
-
+async def delete_user_handler(params: dict[str, Any]) -> bool:
+    console.print("[red]Удаление пользователя. Пожалуйста, напишете email, который необходимо удалить.[/red]")
+    email = Prompt.ask()
+    email=validate_not_empty(email)
+    Confirm.ask(f"[red]Вы действительно хотите удалить пользователя [magenta]{email}[/magenta][/red] ?", default="y")
+    
+    data = {
+        "email":email,
+        "keepTraffic":0
+    }
+    async with AppContainer() as container:
+        app = container.app()
+        response = await app.panel.delete_user(data)
+    console.print(response)
+    return True
+        
 async def quit_handler(params: dict[str, Any]) -> bool:
     console.print("[cyan]Выход из программы[/cyan]")
     return False

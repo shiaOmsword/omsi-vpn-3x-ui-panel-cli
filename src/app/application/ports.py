@@ -11,5 +11,5 @@ class PanelPort(Protocol):
     async def create_client(self, payload: dict[str, Any]) -> dict[str, Any]:
         ...
 
-    async def delete_client(self, client_id: int) -> None:
+    async def delete_client(self, params:dict) -> None:
         ...

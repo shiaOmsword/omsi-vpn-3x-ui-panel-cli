@@ -16,5 +16,5 @@ class ControlPanelGateway:
     async def create_client(self,payload:dict):
         return await self.client.post("/panel/api/clients/add", json=payload)
         
-    async def delete_client(self):
-        ...
+    async def delete_client(self, params:dict):
+        return await self.client.post(f"/panel/api/clients/del/{params.get("email")}", params={"keepTraffic":0})
